@@ -22,6 +22,7 @@ namespace Testing_Automate_Report.Controllers
         {
             return View();
         }
+        int row1;
         // GET: Report
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase files)
@@ -34,12 +35,12 @@ namespace Testing_Automate_Report.Controllers
             files.SaveAs(fullpath);
 
 
+
             var csvTable = new DataTable();
             using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(fullpath)), true))
             {
                 csvTable.Load(csvReader);
             }
-            var row1 = 2;
 
             row1 = csvTable.Rows.Count;
             List<DingRecon> DingDataList = new List<DingRecon>();
@@ -245,7 +246,6 @@ namespace Testing_Automate_Report.Controllers
             Sheet1.Cells["O1"].Value = "User";
             Sheet1.Cells["P1"].Value = "Product SKU code";
             #endregion
-
             foreach (var ding in DingDataList)
             {
                 string[] receiverAmount = ding.RecieveAmt.Split(' ');
@@ -261,7 +261,6 @@ namespace Testing_Automate_Report.Controllers
                 Sheet1.Cells[string.Format("B{0}", row)].Value = ding.TransactionID.ToString();
                 Sheet1.Cells[string.Format("C{0}", row)].Value = ding.BalanceBefore;
                 Sheet1.Cells[string.Format("D{0}", row)].Value = ding.BalanceAfter.ToString() ?? "N/A"; //a.TransactionCurrency;
-
                 Sheet1.Cells[string.Format("E{0}", row)].Value = Convert.ToDouble(receiverAmount[0]); //
                 Sheet1.Cells[string.Format("F{0}", row)].Value = Convert.ToDouble(ding.SalesPrice);
                 Sheet1.Cells[string.Format("G{0}", row)].Value = Convert.ToDouble(ding.CostPrice);
@@ -306,7 +305,6 @@ namespace Testing_Automate_Report.Controllers
             #endregion
             row = 2;
             currentformula = "";
-
             foreach (var a in reconciliationReport)
             {
                 currentformula = "=(N" + row + "-O" + row + ")";
@@ -342,9 +340,9 @@ namespace Testing_Automate_Report.Controllers
             {
                 var excelImage = Sheet2.Drawings.AddPicture("My Logo", image);
 
-                //add the image to row 50, column B
-                excelImage.SetPosition(50, 0, 2, 0);
-                excelImage.SetSize(120);
+                //add the image to row 2, column B
+                excelImage.SetPosition(1, 0, 1, 0);
+                excelImage.SetSize(150, 75);
             }
 
             //define the data range on the source sheet
@@ -352,12 +350,8 @@ namespace Testing_Automate_Report.Controllers
             var dataRange1 = Sheet1.Cells[Sheet1.Dimension.Address];
 
             //create the pivot table
-            var pivotTable = Sheet2.PivotTables.Add(Sheet2.Cells["B4"], dataRange, "PivotTable");
+            var pivotTable = Sheet2.PivotTables.Add(Sheet2.Cells["B8"], dataRange, "PivotTable");
             var pivotTable1 = Sheet2.PivotTables.Add(Sheet2.Cells["B33"], dataRange1, "PivotTable1");
-
-
-            
-            
 
             //label field for TGpay report
             pivotTable.RowFields.Add(pivotTable.Fields["Biller ID"]);
@@ -423,8 +417,7 @@ namespace Testing_Automate_Report.Controllers
             //----------------------------------------//
             //label field for Final PivotTable
 
-
-            using (ExcelRange Rng = Sheet2.Cells["B61:G67"])
+            using (ExcelRange Rng = Sheet2.Cells["B51:G57"])
             {
                 Rng.Merge = false;
                 Rng.Style.Border.Top.Style = ExcelBorderStyle.Thick;
@@ -436,109 +429,113 @@ namespace Testing_Automate_Report.Controllers
                 Rng.Style.Border.Bottom.Style = ExcelBorderStyle.Thick;
                 Rng.Style.Border.Bottom.Color.SetColor(Color.Black);
 
-                Sheet2.Cells["B61"].Value = " ";
-                Sheet2.Cells["B62"].Value = "Ding";
+                Sheet2.Cells["B51"].Value = " ";
+                Sheet2.Cells["B52"].Value = "Ding";
 
-                Sheet2.Cells["B63"].Value = "Online Txns";
-                Sheet2.Cells["C63"].Formula = @"=GETPIVOTDATA(""Count of TransactionID"",Stats!$B$33,""Status"",""Success"",""User"",""API User"")";
-                Sheet2.Cells["B64"].Value = "Manual Posting";
-                Sheet2.Cells["C64"].Formula = @"=GETPIVOTDATA(""Count of TransactionID"",Stats!$B$33,""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
-                Sheet2.Cells["C62"].Formula = @"=SUM(C63,C64)";
-                Sheet2.Cells["B65"].Value = "Etisalat";
-                Sheet2.Cells["C65"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$4,""Biller ID"",""Etisalat"",""Status"",""Approved"")";
-                Sheet2.Cells["B66"].Value = "Paykii";
-                Sheet2.Cells["C66"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$4,""Biller ID"",""Paykii"",""Status"",""Approved"")";
-                Sheet2.Cells["B67"].Value = "TOTAL";
-                Sheet2.Cells["C67"].Formula = @"=SUM(C62,C65,C66)";
+                Sheet2.Cells["B53"].Value = "Online Txns";
+                Sheet2.Cells["C53"].Formula = @"=GETPIVOTDATA(""Count of TransactionID"",Stats!$B$33,""Status"",""Success"",""User"",""API User"")";
+                Sheet2.Cells["B54"].Value = "Manual Posting";
+                Sheet2.Cells["C54"].Formula = @"=GETPIVOTDATA(""Count of TransactionID"",Stats!$B$33,""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
+                Sheet2.Cells["C52"].Formula = @"=SUM(C53,C54)";
+                Sheet2.Cells["B55"].Value = "Etisalat";
+                Sheet2.Cells["C55"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$8,""Biller ID"",""Etisalat"",""Status"",""Approved"")";
+                Sheet2.Cells["B56"].Value = "Paykii";
+                Sheet2.Cells["C56"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$8,""Biller ID"",""Paykii"",""Status"",""Approved"")";
+                Sheet2.Cells["B57"].Value = "TOTAL";
+                Sheet2.Cells["C57"].Formula = @"=SUM(C52,C55,C56)";
                 //Fee Earned
-                Sheet2.Cells["D63"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$4, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
-                Sheet2.Cells["D64"].Formula = @"=GETPIVOTDATA(""Commission Amount"",Stats!$B$33, ""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
-                Sheet2.Cells["D62"].Formula = @"=SUM(D63,D64)";
-                Sheet2.Cells["D65"].Formula = @"=GETPIVOTDATA(""Sum of Total Earning"",Stats!$B$4, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
-                Sheet2.Cells["D66"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$4, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
-                Sheet2.Cells["D67"].Formula = @"=SUM(D62,D65,D66)";
+                Sheet2.Cells["D53"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$8, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
+                Sheet2.Cells["D54"].Formula = @"=GETPIVOTDATA(""Commission Amount"",Stats!$B$33, ""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
+                Sheet2.Cells["D52"].Formula = @"=SUM(D53,D54)";
+                Sheet2.Cells["D55"].Formula = @"=GETPIVOTDATA(""Sum of Total Earning"",Stats!$B$8, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
+                Sheet2.Cells["D56"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$8, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
+                Sheet2.Cells["D57"].Formula = @"=SUM(D52,D55,D56)";
                 //Breakage Earned
-                Sheet2.Cells["E63"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$4, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
-                Sheet2.Cells["E62"].Formula = @"=SUM(E63)";
-                Sheet2.Cells["E66"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$4, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
-                Sheet2.Cells["E67"].Formula = @"=SUM(E66,E62)";
+                Sheet2.Cells["E53"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$8, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
+                Sheet2.Cells["E52"].Formula = @"=SUM(E53)";
+                Sheet2.Cells["E56"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$8, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
+                Sheet2.Cells["E57"].Formula = @"=SUM(E56,E52)";
                 //Total
-                Sheet2.Cells["F63"].Formula = @"=SUM(D63,E63)";
-                Sheet2.Cells["F64"].Formula = @"=SUM(D64,E64)";
-                Sheet2.Cells["F62"].Formula = @"=SUM(F63,F64)";
-                Sheet2.Cells["F65"].Formula = @"=SUM(D65,E65)";
-                Sheet2.Cells["F66"].Formula = @"=SUM(D66,E66)";
-                Sheet2.Cells["F67"].Formula = @"=SUM(F62,F65,F66)";
+                Sheet2.Cells["F53"].Formula = @"=SUM(D53,E53)";
+                Sheet2.Cells["F54"].Formula = @"=SUM(D54,E54)";
+                Sheet2.Cells["F52"].Formula = @"=SUM(F53,F54)";
+                Sheet2.Cells["F55"].Formula = @"=SUM(D55,E55)";
+                Sheet2.Cells["F56"].Formula = @"=SUM(D56,E56)";
+                Sheet2.Cells["F57"].Formula = @"=SUM(F52,F55,F56)";
                 //Biller Due
-                Sheet2.Cells["G63"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$4, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
-                Sheet2.Cells["G64"].Formula = @"=GETPIVOTDATA(""Sum of Cost Price"",Stats!$B$33, ""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
-                Sheet2.Cells["G62"].Formula = @"=SUM(G63,G64)";
-                Sheet2.Cells["G65"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$4, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
-                Sheet2.Cells["G66"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$4, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
-                Sheet2.Cells["G67"].Formula = @"=SUM(G62,G65,G66)";
+                Sheet2.Cells["G53"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$8, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
+                Sheet2.Cells["G54"].Formula = @"=GETPIVOTDATA(""Sum of Cost Price"",Stats!$B$33, ""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
+                Sheet2.Cells["G52"].Formula = @"=SUM(G53,G54)";
+                Sheet2.Cells["G55"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$8, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
+                Sheet2.Cells["G56"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$8, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
+                Sheet2.Cells["G57"].Formula = @"=SUM(G52,G55,G56)";
 
 
-                Sheet2.Cells["C61"].Value = "Count";
-                Sheet2.Cells["D61"].Value = "Fee Earned";
-                Sheet2.Cells["E61"].Value = "Breakage Earned";
-                Sheet2.Cells["F61"].Value = "Total";
-                Sheet2.Cells["G61"].Value = "Biller Due";
+                Sheet2.Cells["C51"].Value = "Count";
+                Sheet2.Cells["D51"].Value = "Fee Earned";
+                Sheet2.Cells["E51"].Value = "Breakage Earned";
+                Sheet2.Cells["F51"].Value = "Total";
+                Sheet2.Cells["G51"].Value = "Biller Due";
+
+                Sheet2.Cells["C51:G51"].Style.Font.Size = 14;
+                Sheet2.Cells["C51:G51"].Style.Font.Name = "Calibri";
+                Sheet2.Cells["C51:G51"].Style.Font.Bold = true;
+                Sheet2.Cells["C51:G51"].Style.Font.Color.SetColor(Color.Black);
+                Sheet2.Cells["B52:B57"].Style.Font.Size = 12;
+                Sheet2.Cells["B52:B57"].Style.Font.Name = "Calibri";
+                Sheet2.Cells["B52:B57"].Style.Font.Bold = true;
+                Sheet2.Cells["B52:B57"].Style.Font.Color.SetColor(Color.Black);
+                Sheet2.Cells["C52:G52"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                Sheet2.Cells["C52:G52"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
+                Sheet2.Cells["C57:G57"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                Sheet2.Cells["C57:G57"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
+                Sheet2.Cells["C51:G51"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                Sheet2.Cells["C51:G51"].Style.Fill.BackgroundColor.SetColor(Color.LightGray);
+                Sheet2.Cells["F53:F56"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                Sheet2.Cells["F53:F56"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
+                Sheet2.Cells["C53:E56"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                Sheet2.Cells["C53:E56"].Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
+                Sheet2.Cells["G53:G56"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                Sheet2.Cells["G53:G56"].Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
+
+                //Heading 1
+                ExcelRange rg = Sheet2.Cells["B7"];
+                rg.IsRichText = true;
+                //ExcelRichText uses "using OfficeOpenXml.Style;"
+                ExcelRichText text1 = rg.RichText.Add("TG Pay Details");
+                text1.Bold = true;
+                text1.FontName = "Calibri";
+                text1.Size = 18;
+                text1.Color = System.Drawing.Color.Black;
+                //Heading 2
+                ExcelRange h2 = Sheet2.Cells["B31"];
+                h2.IsRichText = true;
+                //ExcelRichText uses "using OfficeOpenXml.Style;"
+                ExcelRichText text2 = h2.RichText.Add("Ding Details");
+                text2.Bold = true;
+                text2.FontName = "Calibri";
+                text2.Size = 18;
+                text2.Color = System.Drawing.Color.Black;
+                //Heading 2
+                ExcelRange h3 = Sheet2.Cells["B50"];
+                h3.IsRichText = true;
+                //ExcelRichText uses "using OfficeOpenXml.Style;"
+                ExcelRichText text3 = h3.RichText.Add("Total Earning");
+                text3.Bold = true;
+                text3.FontName = "Calibri";
+                text3.Size = 18;
+                text3.Color = System.Drawing.Color.Black;
+                //Footer
+                ExcelRange g = Sheet2.Cells["D60"];
+                g.IsRichText = true;
+                //ExcelRichText uses "using OfficeOpenXml.Style;"
+                ExcelRichText Footer = g.RichText.Add("© 2022 Encore-Pay");
+                Footer.Bold = true;
+                //Footer.Italic = true;
+                Footer.FontName = "Calibri";
+                Footer.Size = 11;
+                Footer.Color = System.Drawing.Color.Black;
             }
-            
-            Sheet2.Cells["C61:G61"].Style.Font.Size = 14;
-            Sheet2.Cells["C61:G61"].Style.Font.Name = "Calibri";
-            Sheet2.Cells["C61:G61"].Style.Font.Bold = true;
-            Sheet2.Cells["C61:G61"].Style.Font.Color.SetColor(Color.Black);
-            Sheet2.Cells["B62:B67"].Style.Font.Size = 12;
-            Sheet2.Cells["B62:B67"].Style.Font.Name = "Calibri";
-            Sheet2.Cells["B62:B67"].Style.Font.Bold = true;
-            Sheet2.Cells["B62:B67"].Style.Font.Color.SetColor(Color.Black);
-            Sheet2.Cells["C62:G62"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-            Sheet2.Cells["C62:G62"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
-            Sheet2.Cells["C67:G67"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-            Sheet2.Cells["C67:G67"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
-            Sheet2.Cells["C61:G61"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-            Sheet2.Cells["C61:G61"].Style.Fill.BackgroundColor.SetColor(Color.LightGray);
-            Sheet2.Cells["F63:F66"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-            Sheet2.Cells["F63:F66"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
-            Sheet2.Cells["C63:E66"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-            Sheet2.Cells["C63:E66"].Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
-            Sheet2.Cells["G63:G66"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-            Sheet2.Cells["G63:G66"].Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
-
-            //Heading 1
-            ExcelRange rg = Sheet2.Cells["B2"];
-            rg.IsRichText = true;
-            //ExcelRichText uses "using OfficeOpenXml.Style;"
-            ExcelRichText text1 = rg.RichText.Add("TG Pay Details");
-            text1.Bold = true;
-            text1.Italic = true;
-            text1.FontName = "Calibri";
-            text1.Size = 18;
-            text1.Color = System.Drawing.Color.Black;
-            //Heading 2
-            ExcelRange h2 = Sheet2.Cells["B30"];
-            h2.IsRichText = true;
-            //ExcelRichText uses "using OfficeOpenXml.Style;"
-            ExcelRichText text2 = h2.RichText.Add("Ding Details");
-            text2.Bold = true;
-            text2.Italic = true;
-            text2.FontName = "Calibri";
-            text2.Size = 18;
-            text2.Color = System.Drawing.Color.Black;
-            //Footer
-            ExcelRange g = Sheet2.Cells["D70"];
-            g.IsRichText = true;
-            //ExcelRichText uses "using OfficeOpenXml.Style;"
-            ExcelRichText Footer = g.RichText.Add("© 2022 Encore-Pay");
-            //Footer.Bold = true;
-            //Footer.Italic = true;
-            Footer.FontName = "Calibri";
-            Footer.Size = 18;
-            Footer.Color = System.Drawing.Color.Black;
-
-
-
             handle = Guid.NewGuid().ToString();
             using (MemoryStream memoryStream = new MemoryStream())
             {
