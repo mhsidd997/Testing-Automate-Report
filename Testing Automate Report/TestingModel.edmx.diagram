@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8825ae47528488a96f1d9e782aa2c05" Name="Diagram1">
+        <EntityTypeShape EntityType="PAYdevModel.ADSLNumberConfiguration" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Advertisement" Width="1.5" PointX="11.25" PointY="168.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AdvertisementGroup" Width="1.5" PointX="11.25" PointY="172" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AdvertisementSet" Width="1.5" PointX="13.5" PointY="171" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AgentLimitCycle" Width="1.5" PointX="13.5" PointY="177" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AgentLimitGroup" Width="1.5" PointX="11.25" PointY="176.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AgentOfflineHistory" Width="1.5" PointX="32.5" PointY="241" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AgentSearchHistory" Width="1.5" PointX="30.5" PointY="220.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AgentSettlementCycle" Width="1.5" PointX="32.5" PointY="251.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AgentSettlementGroup" Width="1.5" PointX="11.25" PointY="181" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Alert" Width="1.5" PointX="14.25" PointY="219.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AlertLevel" Width="1.5" PointX="25.5" PointY="231.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AlertMethod" Width="1.5" PointX="16.5" PointY="211.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AlertNotification" Width="1.5" PointX="32.75" PointY="215.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AlertNotificationUser" Width="1.5" PointX="38" PointY="218.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AlertTerminalGroup" Width="1.5" PointX="18.5" PointY="203.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AppMenu" Width="1.5" PointX="18.75" PointY="250" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AppMenuGroup" Width="1.5" PointX="11.25" PointY="225" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AppMenuTemplate" Width="1.5" PointX="21" PointY="251.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AppRelease" Width="1.5" PointX="14.25" PointY="215" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AppSettingParameter" Width="1.5" PointX="21" PointY="165.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AppSettingValue" Width="1.5" PointX="21" PointY="162.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AppUserSetting" Width="1.5" PointX="23.25" PointY="190.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Attribute" Width="1.5" PointX="11.25" PointY="323.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.AuditLog" Width="1.5" PointX="17.25" PointY="219.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Bank" Width="1.5" PointX="0.75" PointY="216.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.BankCurrency" Width="1.5" PointX="3" PointY="220.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.BeneficiaryField" Width="1.5" PointX="8.25" PointY="230.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.BillerCatalog" Width="1.5" PointX="5.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Bundle" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.BundleType" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CashCollection" Width="1.5" PointX="40.75" PointY="214.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Channel" Width="1.5" PointX="21" PointY="203.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ChequeLog" Width="1.5" PointX="37" PointY="242" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.City" Width="1.5" PointX="13.5" PointY="186.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CMSService" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CommissionGroup" Width="1.5" PointX="11.25" PointY="206.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CommissionRate" Width="1.5" PointX="15.75" PointY="202.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CommissionTransactionMethod" Width="1.5" PointX="13.5" PointY="206.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Contact" Width="1.5" PointX="16.5" PointY="214.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ContactGroup" Width="1.5" PointX="11.25" PointY="215.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Corporate" Width="1.5" PointX="11.25" PointY="218.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CorporateVerificationOption" Width="1.5" PointX="13.5" PointY="225.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Corridor" Width="1.5" PointX="1.5" PointY="199.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CorridorCurrency" Width="1.5" PointX="6" PointY="220.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Country" Width="1.5" PointX="0.75" PointY="203.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CountryBank" Width="1.5" PointX="3" PointY="210" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Currency" Width="1.5" PointX="0.75" PointY="219.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CurrencyDenomination" Width="1.5" PointX="3" PointY="228.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Customer" Width="1.5" PointX="20.25" PointY="216.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerAccount" Width="1.5" PointX="22.5" PointY="216" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerActivity" Width="1.5" PointX="30.5" PointY="216.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerAgentSearch" Width="1.5" PointX="28.25" PointY="205.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerBeneficiary" Width="1.5" PointX="3" PointY="213.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerDocType" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerDocument" Width="1.5" PointX="22.5" PointY="232.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerFeedback" Width="1.5" PointX="22.5" PointY="225" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerJourneyAnswer" Width="1.5" PointX="28.25" PointY="200.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerJourneyQuestion" Width="1.5" PointX="26" PointY="200.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerKin" Width="1.5" PointX="30.5" PointY="223.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerLocationSearch" Width="1.5" PointX="28.25" PointY="197" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerOTP" Width="1.5" PointX="22.5" PointY="236.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerQuestionnaire" Width="1.5" PointX="30.5" PointY="212.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerReview" Width="1.5" PointX="30.5" PointY="228.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerReviewItem" Width="1.5" PointX="32.75" PointY="228.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.CustomerWallet" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DCountry" Width="1.5" PointX="15.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Department" Width="1.5" PointX="16.5" PointY="224.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Device" Width="1.5" PointX="33.5" PointY="201" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DeviceAlertStatu" Width="1.5" PointX="28.5" PointY="233.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DeviceGroupCurrency" Width="1.5" PointX="3" PointY="223.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DeviceReInit" Width="1.5" PointX="41" PointY="218.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DeviceRemark" Width="1.5" PointX="40.25" PointY="221.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DeviceSet" Width="1.5" PointX="24.5" PointY="207.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DeviceType" Width="1.5" PointX="19.25" PointY="211.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DisputedTransaction" Width="1.5" PointX="32.75" PointY="209.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DisputedTransactionRemark" Width="1.5" PointX="38" PointY="210.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DProduct" Width="1.5" PointX="20.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DProvider" Width="1.5" PointX="18" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DProviderRegion" Width="1.5" PointX="23.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DRegion" Width="1.5" PointX="18" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Driver" Width="1.5" PointX="24.75" PointY="225.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DriverVehicleGroup" Width="1.5" PointX="35" PointY="227.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.DriverVerificationOption" Width="1.5" PointX="37" PointY="230.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.EmailConfiguration" Width="1.5" PointX="11.25" PointY="242.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ErrorCode" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ExchangeRate" Width="1.5" PointX="6" PointY="216.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Feature" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.FeeGroup" Width="1.5" PointX="11.25" PointY="245.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.FeeRate" Width="1.5" PointX="6" PointY="224.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ForceRestart" Width="1.5" PointX="29.75" PointY="208.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.FuelStation" Width="1.5" PointX="24.75" PointY="211" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.FuelStationProduct" Width="1.5" PointX="27" PointY="274.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.GeneralLedger" Width="1.5" PointX="40" PointY="244.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.GeneralLedgerHead" Width="1.5" PointX="11.25" PointY="249.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.GlobalConfiguration" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.GSMType" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Hierarchy" Width="1.5" PointX="11.25" PointY="253" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Host" Width="1.5" PointX="19.25" PointY="227.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.HostEvent" Width="1.5" PointX="21.5" PointY="240.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.HostResponseCode" Width="1.5" PointX="25.5" PointY="235.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.HostSettlementCycle" Width="1.5" PointX="21.5" PointY="244.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.HostTransactionCode" Width="1.5" PointX="31.5" PointY="232" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.IconLibrary" Width="1.5" PointX="11.25" PointY="266.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Institution" Width="1.5" PointX="9" PointY="214" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionBiometricConfig" Width="1.5" PointX="11.25" PointY="269.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionChannel" Width="1.5" PointX="14.25" PointY="228.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionCurrency" Width="1.5" PointX="11.25" PointY="211.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionLanguage" Width="1.5" PointX="14.25" PointY="211.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionLevel" Width="1.5" PointX="11.25" PointY="231.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionParameterAtt" Width="1.5" PointX="21" PointY="254.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionParameterValue" Width="1.5" PointX="24" PointY="249.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionPaymentMethod" Width="1.5" PointX="14.25" PointY="231.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionService" Width="1.5" PointX="22.25" PointY="212.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionSetting" Width="1.5" PointX="11.25" PointY="289.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InstitutionStore" Width="1.5" PointX="25.25" PointY="216" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Inventory" Width="1.5" PointX="33.5" PointY="225" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InventoryLog" Width="1.5" PointX="32.5" PointY="236.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InventorySale" Width="1.5" PointX="18" PointY="255.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.InventorySaleItem" Width="1.5" PointX="24.5" PointY="239.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Invoice" Width="1.5" PointX="27.75" PointY="223.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.IOCatalog" Width="1.5" PointX="10.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Item" Width="1.5" PointX="11.25" PointY="292.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Journal" Width="1.5" PointX="35.75" PointY="214.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.JournalCategory" Width="1.5" PointX="33.5" PointY="205.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.KioskLog" Width="1.5" PointX="35.75" PointY="210.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Language" Width="1.5" PointX="6.75" PointY="212.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Level" Width="1.5" PointX="23.25" PointY="201.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.LimitCycle" Width="1.5" PointX="11.25" PointY="186.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.LineValidation" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.LocationSearchHistory" Width="1.5" PointX="33.5" PointY="220.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.MaritalStatu" Width="1.5" PointX="15.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Merchant" Width="1.5" PointX="11.25" PointY="295.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Message" Width="1.5" PointX="20.25" PointY="184.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.MessageCode" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.MessageDelivery" Width="1.5" PointX="25.5" PointY="187.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.MessageMapping" Width="1.5" PointX="21.5" PointY="248" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.MessageMedia" Width="1.5" PointX="22.5" PointY="188" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Module" Width="1.5" PointX="9" PointY="303.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ModuleAttribute" Width="1.5" PointX="13.5" PointY="314.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.MoneyTransfer" Width="1.5" PointX="12.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Nationality" Width="1.5" PointX="14.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.NewLine" Width="1.5" PointX="16.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Notification" Width="1.5" PointX="22.25" PointY="228.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.NotificationDelivery" Width="1.5" PointX="24.5" PointY="252.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Offer" Width="1.5" PointX="13.5" PointY="190.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.OfferAttribute" Width="1.5" PointX="15.75" PointY="192.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.OfferProvince" Width="1.5" PointX="15.75" PointY="188.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.OfferStore" Width="1.5" PointX="30.5" PointY="200.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.OfferType" Width="1.5" PointX="11.25" PointY="192.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.OnlineHelp" Width="1.5" PointX="23.25" PointY="220" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.OnlineHelpGroup" Width="1.5" PointX="21" PointY="199" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PasswordHistory" Width="1.5" PointX="20.25" PointY="188" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PasswordPolicy" Width="1.5" PointX="11.25" PointY="308.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PaymentCycle" Width="1.5" PointX="16.5" PointY="176.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PaymentLimit" Width="1.5" PointX="14.25" PointY="181.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PaymentMethod" Width="1.5" PointX="30.5" PointY="204" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PerformanceCycle" Width="1.5" PointX="37.75" PointY="234.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PerformanceGroup" Width="1.5" PointX="11.25" PointY="272.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PermissionGroup" Width="1.5" PointX="11.25" PointY="314" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PreFundingGroup" Width="1.5" PointX="11.25" PointY="317.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PrepaidAmount" Width="1.5" PointX="17.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PrepaidType" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PriceList" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PriceListCategory" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.PriceListRate" Width="1.5" PointX="8.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Product" Width="1.5" PointX="22.25" PointY="206.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ProductCode" Width="1.5" PointX="16.5" PointY="275.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ProductCodeGroup" Width="1.5" PointX="11.25" PointY="332.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ProductGroup" Width="1.5" PointX="11.25" PointY="336.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ProductSet" Width="1.5" PointX="24.5" PointY="271.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ProductType" Width="1.5" PointX="20" PointY="180.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Receipt" Width="1.5" PointX="21" PointY="267.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Region" Width="1.5" PointX="25.25" PointY="204.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.RemainingLimit" Width="1.5" PointX="16.25" PointY="206.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.RemainingLimitLog" Width="1.5" PointX="19.25" PointY="206.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.RemittanceType" Width="1.5" PointX="0.75" PointY="207.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.RepostDetail" Width="1.5" PointX="38" PointY="214.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.RequestType" Width="1.5" PointX="21" PointY="270.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ResponseCode" Width="1.5" PointX="23.25" PointY="258.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ResponseCodeCategory" Width="1.5" PointX="21" PointY="258.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.RiskConfiguration" Width="1.5" PointX="11.25" PointY="350" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Rollout" Width="1.5" PointX="16.5" PointY="230.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Screen" Width="1.5" PointX="24.75" PointY="262.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Service" Width="1.5" PointX="20" PointY="234.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ServiceInformation" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ServiceModule" Width="1.5" PointX="11.25" PointY="304.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.ServiceTemplate" Width="1.5" PointX="24.25" PointY="243.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.SKUCatalog" Width="1.5" PointX="8" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.SM" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.SMSConfiguration" Width="1.5" PointX="11.25" PointY="353.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.SpeedBundle" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.SpeedBundleType" Width="1.5" PointX="3.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.State" Width="1.5" PointX="18" PointY="198.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Store" Width="1.5" PointX="15.75" PointY="246.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.StorePrepaidAmount" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.StoreProduct" Width="1.5" PointX="18" PointY="292" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Template" Width="1.5" PointX="18.75" PointY="245.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TemplateScreen" Width="1.5" PointX="27" PointY="246.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TemplateScreenField" Width="1.5" PointX="32.25" PointY="254.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TemplateTransactionField" Width="1.5" PointX="27" PointY="254.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TemplateTransactionFieldOpt" Width="1.5" PointX="32.25" PointY="258.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TempTransactionPlaceholder" Width="1.5" PointX="32.25" PointY="261.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Terminal" Width="1.5" PointX="27.5" PointY="209" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalAlertStatu" Width="1.5" PointX="16.5" PointY="234.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalAppVersion" Width="1.5" PointX="29.75" PointY="237.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalCashCollection" Width="1.5" PointX="29.75" PointY="240.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalDataUsage" Width="1.5" PointX="29.75" PointY="243.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalDevice" Width="1.5" PointX="35.75" PointY="218.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalDeviceEvent" Width="1.5" PointX="38" PointY="221.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalEvent" Width="1.5" PointX="29.75" PointY="247.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalGroup" Width="1.5" PointX="13.5" PointY="198.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalGroupConfig" Width="1.5" PointX="15.75" PointY="237.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalHeartbeat" Width="1.5" PointX="35.75" PointY="206.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalHeartbeatDetail" Width="1.5" PointX="38" PointY="206.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalIMEI" Width="1.5" PointX="29.75" PointY="251.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalMACAddress" Width="1.5" PointX="29.75" PointY="253.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalPowerTool" Width="1.5" PointX="29.75" PointY="256.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalRemark" Width="1.5" PointX="32" PointY="247.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TerminalType" Width="1.5" PointX="11.25" PointY="199.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TransactionAttribute" Width="1.5" PointX="18.75" PointY="259.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TransactionCode" Width="1.5" PointX="16.5" PointY="243.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TransactionField" Width="1.5" PointX="21.75" PointY="262.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TransactionFieldOption" Width="1.5" PointX="30" PointY="263" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TransactionGroup" Width="1.5" PointX="11.25" PointY="356.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TransactionLog" Width="1.5" PointX="34.75" PointY="232" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TransactionPlaceholder" Width="1.5" PointX="30" PointY="266.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TransactionVideo" Width="1.5" PointX="29.75" PointY="259" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TRAPIStatu" Width="1.5" PointX="19.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TRBankNetwork" Width="1.5" PointX="13" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TRCashNetwork" Width="1.5" PointX="13" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TRCity" Width="1.5" PointX="13" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TRCountry" Width="1.5" PointX="10.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TRCountryCurrency" Width="1.5" PointX="13" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.User" Width="1.5" PointX="18" PointY="184.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserFavorite" Width="1.5" PointX="24" PointY="255.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserGroup" Width="1.5" PointX="13.5" PointY="270.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserGroupLevel" Width="1.5" PointX="15.75" PointY="272.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserHierarchy" Width="1.5" PointX="13.5" PointY="253.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserPassword" Width="1.5" PointX="20.25" PointY="190.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserProfile" Width="1.5" PointX="20.25" PointY="193.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserServiceModule" Width="1.5" PointX="13.5" PointY="311.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserSession" Width="1.5" PointX="20.25" PointY="177.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserSet" Width="1.5" PointX="18.75" PointY="273.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserShift" Width="1.5" PointX="20.25" PointY="173.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserShiftEvent" Width="1.5" PointX="20.25" PointY="168.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.UserTerminalGroup" Width="1.5" PointX="15.75" PointY="199.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.VATGroup" Width="1.5" PointX="11.25" PointY="359.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.VATRate" Width="1.5" PointX="13.5" PointY="290.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Vehicle" Width="1.5" PointX="11.25" PointY="364.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.VehicleGroup" Width="1.5" PointX="27.75" PointY="228.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.VehicleSet" Width="1.5" PointX="30" PointY="297.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.VerificationOption" Width="1.5" PointX="11.25" PointY="235.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.VideoCall" Width="1.5" PointX="35.75" PointY="222.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.VisaType" Width="1.5" PointX="12.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Wallet" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.Widget" Width="1.5" PointX="11.25" PointY="373.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.WidgetGroup" Width="1.5" PointX="11.25" PointY="369" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.WidgetSet" Width="1.5" PointX="13.5" PointY="369.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TGTransactionLog" Width="1.5" PointX="14.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PAYdevModel.TRBeneficiaryField" Width="1.5" PointX="20.75" PointY="17.75" IsExpanded="true" />
+        <AssociationConnector Association="PAYdevModel.FK_Advertisement_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AdvertisementSet_Advertisement" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AdvertisementGroup_AdvertisementGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AdvertisementGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AdvertisementSet_AdvertisementGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalGroup_AdvertisementGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalGroup_AdvertisementGroup1" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AgentLimitCycle_AgentLimitGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AgentLimitCycle_LimitCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AgentLimitGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PaymentCycle_AgentLimitGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_AgentLimitGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AgentOfflineHistory_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_AgentOfflineHistory" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__AgentSear__Agent__2779CBAB" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__AgentSear__Custo__25918339" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__AgentSear__Locat__2685A772" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AgentSettlementCycle_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CashCollection_AgentSettlementCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_AgentSettlementCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AgentSettlementGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_AgentSettlementGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Alert_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Alert_TerminalType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertLevel_Alert" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertMethod_Alert" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertNotification_Alert" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertTerminalGroup_Alert" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceAlertStatus_Alert" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalAlertStatus_Alert" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertLevel_Level" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroupLevel_AlertLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertNotification_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertNotificationUser_AlertNotification" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertNotificationUser_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AlertTerminalGroup_TerminalGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AppMenu_AppMenuGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AppMenu_ProductCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AppMenu_TransactionCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionParameterAttribute_AppMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionParameterValue_AppMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ServiceTemplate_ServiceMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_AppMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserFavorite_ServiceMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AppMenuGroup_AppRelease" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AppMenuGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_ServiceMenuGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AppMenuTemplate_Template" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AppRelease_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AppRelease_TerminalType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Rollout_AppRelease" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionValue_InstitutionParameter" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserInstitutionSetting_InstitutionParameter" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserInstitutionSetting_InstitutionValue" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserInstitutionSetting_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ModuleAttribute_Attribute" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AuditLog_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_AuditLog_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_BankCurrency_Bank" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CountryBank_Bank" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_BankCurrency_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_BeneficiaryField_CorridorCurrency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__SKUCatalo__PdBil__22D5121F" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Bundle_BundleType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Bundle_GSMType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CashCollection_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionChannel_Channel" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Onlinehelp_Channel" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ChequeLog_TransactionLog" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ChequeLog_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_OfferProvince_City" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CMSService_GSMType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CommissionGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CommissionTransactionMethod_CommissionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_CommissionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CommssionRate_CommissionTransactionMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CommissionTransactionMethod_HostTransactionCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CommissionTransactionMethod_PaymentMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Contact_ContactGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Contact_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ContactGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Corporate_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CorporateVerificationOption_Corporate" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Department_Corporate" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Driver_Corporate" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Invoice_Corporate" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VehicleGroup_Corporate" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CorporateVerificationOption_VerificationOption" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Corridor_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CorridorCurrency_Corridor" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CorridorCurrency_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CorridorCurrency_RemittanceType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CountryBank_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Customer_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerBeneficiary_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerKin_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Host_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Institution_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CurrencyDenomination_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerBeneficiary_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceGroupCurrency_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ExchangeRate_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ExchangeRate_Currency1" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_FeeRate_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Institution_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionCurrency_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VATRate_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__CustomerQ__Custo__77CAB889" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__LocationS__Custo__21C0F255" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Customer_Feedback" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Customer_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Customer_State" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Customer_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerAccount_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerActivity_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerBeneficiary_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerDocument_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerKin_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerOTP_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Table_1_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerActivity_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerBeneficiary_RemittanceType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerBeneficiary_State" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__JourneyAn__Journ__74EE4BDE" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerQ_JourneyAnswer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__CustomerQ__Journ__78BEDCC2" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__LocationS__Locat__22B5168E" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_CustomerReviewItem_CustomerReview" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Table_1_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DProvider_DCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DRegion_DRegion" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Department_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Driver_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Invoice_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VehicleGroup_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Device_TerminalType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceAlertStatus_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceSet_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalDevice_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceGroupCurrency_DeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceReInit_TerminalDevice" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceReInit_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalDeviceEvent_DeviceRemark" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_User_DeviceRemark" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceSet_DeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceType_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DeviceType_TerminalType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Terminal_DeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DisputedTransaction_DisputedTransactionRemark" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DisputedTransaction_PaymentMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DisputedTransaction_RepostDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DisputedTransaction_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DisputedTransaction_TerminalType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DisputedTransaction_TransactionLog" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_User_DisputedTransactionRemark" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DProduct_DProvider" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DProduct_DRegion" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DProviderRegion_DProvider" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DProviderRegion_DRegion" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DriverVehicleGroup_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DriverVerificationOption_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DriverVehicleGroup_VehicleGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_DriverVerificationOption_VerificationOption" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_EmailConfiguration_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ExchangeRate_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Feature_GSMType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_FeeGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_FeeRate_FeeGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_FeeGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__ForceRest__Termi__74B941B4" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__ForceRest__UserI__75AD65ED" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_FuelStation_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_FuelStation_TerminalGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_FuelStationProduct_FuelStation" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_FuelStationProduct_ProductGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_GeneralLedger_GeneralLedgerHead" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_GeneralLedger_TransactionLog" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_GeneralLedgerHead_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PriceList_GSMType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_SpeedBundle_GSMType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Hierarchy_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserHierarchy_Hierarchy" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Host_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_HostEvent_Host" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_HostResponseCode_Host" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_HostSettlementCycle_Host" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_HostTransactionCode_Host" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_MessageMapping_Host" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_HostResponseCode_ResponseCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_HostResponseCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_HostSettlementCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_HostTransactionCode_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_HostTransactionCode_TransactionCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PerformanceCycle_HostTransactionCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_OptionIcon_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_HostProductCode_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Institution_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionBiometricConfiguration_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionChannel_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionCurrency_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionLanguage_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionLevel_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionPaymentMethod_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionService_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionSetting_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Invoice_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Item_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Merchant_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Notification_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Onlinehelp_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PasswordPolicy_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PermissionGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PreFundingGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Product_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ProductCodeGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ProductGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RemainingLimit_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RemainingLimitLog_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RiskConfiguration_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_SMSConfiguration_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Store_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Terminal_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VATGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Vehicle_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VehicleGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_WidgetGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionLanguage_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionLevel_Level" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionParameterAttribute_TransactionAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionParameterValue_TransactionField" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionPaymentMethod_PaymentMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InstitutionService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_OfferStore_InstitutionStore" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Terminal_InstitutionStore" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Inventory_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Inventory_Store" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InventoryLog_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InventoryLog_Store" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InventoryLog_Store1" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InventorySale_Store" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InventorySaleItem_InventorySale" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_InventorySaleItem_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__IOCatalog__PdSKU__25B17ECA" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Journal_JournalCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Journal_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__KioskLog__Termin__70E8B0D0" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK__KioskLog__UserID__2818EA29" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PaymentCycle_LimitCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PerformanceCycle_LimitCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RemainingLimit_LimitCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RemainingLimitLog_LimitCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Store_Merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Message_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_MessageDelivery_Message" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_MessageMedia_Message" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_MessageDelivery_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ModuleAttribute_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ServiceModule_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ModuleAttribute_PermissionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Notification_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_NotificationDelivery_Notification" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_NotificationDelivery_UserGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Offer_OfferType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Offer_TerminalType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_OfferAttribute_Offer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_OfferProvince_Offer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_OfferStore_Offer" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_OnlineHelp_OnlineHelpGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PasswordHistory_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PaymentCycle_PaymentLimit" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RemainingLimit_PaymentLimit" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RemainingLimitLog_PaymentLimit" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PerformanceCycle_PerformanceGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_PerformanceGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_PermissionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserServiceModule_PermissionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_PreFundingGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PriceList_PriceListCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PriceList_PriceListCategory1" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_PriceListRate_PriceList" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Product_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ProductSet_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ProductCode_ProductCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_ProductCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ProductSet_ProductGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_StoreProduct_ProductGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Receipt_Template" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Terminal_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RemainingLimit_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RemainingLimitLog_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_User_RepostDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_RequestType_Template" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ResponseCode_ResponseCodeCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_ResponseCode" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_ResponseCodeCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalAppRoullout" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateScreen_Screen" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ServiceModule_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ServiceTemplate_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserServiceModule_ServiceModule" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_ServiceTemplate_Template" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_SpeedBundle_SpeedBundleType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Store_TerminalGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_StoreProduct_Store" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateScreen_Template" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateTransactionField_Template" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateScreenField_TemplateScreen" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateScreenField_TemplateTransactionField" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateTransactionField_TransactionField" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateTransactionFieldOption_TemplateTransactionField" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateTransactionPlaceholder_TemplateTransactionField" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateTransactionFieldOption_TransactionFieldOption" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TemplateTransactionPlaceholder_TransactionPlaceholder" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Terminal_TerminalGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_Terminal_TerminalType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalAppVersion_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalCashCollection_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalDataUsage_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalDevice_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalEvent_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalHeartbeat_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalIMEI_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalMACAddress_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalPowerTool_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionLog_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionVideo_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VideoCall_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalDeviceEvent_TerminalDevice" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalEvent_TerminalRemark" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalGroup_TerminalType" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalGroupConfig_TerminalGroupConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserTerminalGroup_TerminalGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalHeartbeat_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TerminalHeartbeatDetail_TerminalHeartbeat" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_User_TerminalRemark" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionAttribute_TransactionField" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TransactionFieldOption_TransactionField" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_TransactionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TRBankNetwork_TRCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TRCashNetwork_TRCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TRCity_TRCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_TRCountryCurrency_TRCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserFavorite_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserHierarchy_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserPassword_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserProfile_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserSession_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserSet_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserShift_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserShiftEvent_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserTerminalGroup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VideoCall_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_VATGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroup_WidgetGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserGroupLevel_UserGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_UserSet_UserGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VATRate_FeeGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VehicleSet_Vehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_VehicleSet_VehicleGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_WidgetSet_Widget" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.FK_WidgetSet_WidgetGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="PAYdevModel.CorridorRemittanceType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/bootstrap-chosen.css" rel="stylesheet">
+
+<h2>Index</h2>
+<div id="tab-2">
+    <br>
+    @using (Html.BeginForm("Index", "Report", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <div class="drop-zone" id="dropArea">
+
+            <span class="drop-promp">
+                <strong>Drop file here or click to upload</strong>
+                <br>(This is ding file upload tab, only upload a .csv file)
+            </span>
+
+            <input type="file" id="uploadingFile" name="files" class="drop-zone-input" accept=".csv, .xlsx" style="display:none">
+
+        </div>
+        <br>
+
+        <input type="submit" id="generateRep" value="Generate Report" style="position: relative; left: 872px; background-color: #1ab394; font-weight: bold;  color: white; border-color:#1ab394;width:120px;height:33px;border:#1bb394">}
+</div>
+
+<script>
+    document.querySelectorAll(".drop-zone-input").forEach(inputElement => {
+
+        const dropZoneElement = inputElement.closest(".drop-zone");
+
+        dropZoneElement.addEventListener("click", e => {
+            inputElement.click();
+
+        });
+        inputElement.addEventListener("change", e => {
+
+            if (inputElement.files.length) {
+                updateThumbnail(dropZoneElement, inputElement.files[0]);
+            }
+
+        });
+        dropZoneElement.addEventListener("dragover", e => {
+            e.preventDefault();
+            dropZoneElement.classList.add("drop-zone-over");
+        });
+
+        ["dragleave", "dragend"].forEach(type => {
+            dropZoneElement.addEventListener(type, e => {
+                dropZoneElement.classList.remove("drop-zone-over");
+            });
+        });
+
+        dropZoneElement.addEventListener("drop", e => {
+            e.preventDefault();
+            console.log(e)
+            //console.log(e.dataTransfer.files[0]);
+            if (e.dataTransfer.files[0]) {
+                inputElement.files[0] = e.dataTransfer.files[0];
+                /*this.inputElement.files[0] = e.dataTransfer.files[0];*/
+                console.log(inputElement.files);
+                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+            }
+            dropZoneElement.classList.remove("drop-zone-over");
+        });
+
+
+
+    });
+
+
+    function updateThumbnail(dropZoneElement, file) {
+
+        let thumbnailElement = dropZoneElement.querySelector(".drop-zone-thumb");
+
+        if (dropZoneElement.querySelector(".drop-promp")) {
+            dropZoneElement.querySelector(".drop-promp").remove();
+        }
+
+        if (!thumbnailElement) {
+            thumbnailElement = document.createElement("div");
+            thumbnailElement.classList.add("drop-zone-thumb");
+            dropZoneElement.appendChild(thumbnailElement);
+        }
+
+        thumbnailElement.dataset.label = file.name;
+
+
+    }
+
+
+</script>
+
+
