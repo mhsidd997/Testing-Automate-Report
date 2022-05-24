@@ -342,7 +342,7 @@ namespace Testing_Automate_Report.Controllers
 
                 //add the image to row 2, column B
                 excelImage.SetPosition(1, 0, 1, 0);
-                excelImage.SetSize(150, 75);
+                excelImage.SetSize(200, 75);
             }
 
             //define the data range on the source sheet
@@ -350,7 +350,7 @@ namespace Testing_Automate_Report.Controllers
             var dataRange1 = Sheet1.Cells[Sheet1.Dimension.Address];
 
             //create the pivot table
-            var pivotTable = Sheet2.PivotTables.Add(Sheet2.Cells["B8"], dataRange, "PivotTable");
+            var pivotTable = Sheet2.PivotTables.Add(Sheet2.Cells["B11"], dataRange, "PivotTable");
             var pivotTable1 = Sheet2.PivotTables.Add(Sheet2.Cells["B33"], dataRange1, "PivotTable1");
 
             //label field for TGpay report
@@ -438,22 +438,22 @@ namespace Testing_Automate_Report.Controllers
                 Sheet2.Cells["C54"].Formula = @"=GETPIVOTDATA(""Count of TransactionID"",Stats!$B$33,""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
                 Sheet2.Cells["C52"].Formula = @"=SUM(C53,C54)";
                 Sheet2.Cells["B55"].Value = "Etisalat";
-                Sheet2.Cells["C55"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$8,""Biller ID"",""Etisalat"",""Status"",""Approved"")";
+                Sheet2.Cells["C55"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$11,""Biller ID"",""Etisalat"",""Status"",""Approved"")";
                 Sheet2.Cells["B56"].Value = "Paykii";
-                Sheet2.Cells["C56"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$8,""Biller ID"",""Paykii"",""Status"",""Approved"")";
+                Sheet2.Cells["C56"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$11,""Biller ID"",""Paykii"",""Status"",""Approved"")";
                 Sheet2.Cells["B57"].Value = "TOTAL";
                 Sheet2.Cells["C57"].Formula = @"=SUM(C52,C55,C56)";
                 //Fee Earned
-                Sheet2.Cells["D53"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$8, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
+                Sheet2.Cells["D53"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$11, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
                 Sheet2.Cells["D54"].Formula = @"=GETPIVOTDATA(""Commission Amount"",Stats!$B$33, ""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
                 Sheet2.Cells["D52"].Formula = @"=SUM(D53,D54)";
-                Sheet2.Cells["D55"].Formula = @"=GETPIVOTDATA(""Sum of Total Earning"",Stats!$B$8, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
-                Sheet2.Cells["D56"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$8, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
+                Sheet2.Cells["D55"].Formula = @"=GETPIVOTDATA(""Sum of Total Earning"",Stats!$B$11, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
+                Sheet2.Cells["D56"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$11, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
                 Sheet2.Cells["D57"].Formula = @"=SUM(D52,D55,D56)";
                 //Breakage Earned
-                Sheet2.Cells["E53"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$8, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
+                Sheet2.Cells["E53"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$11, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
                 Sheet2.Cells["E52"].Formula = @"=SUM(E53)";
-                Sheet2.Cells["E56"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$8, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
+                Sheet2.Cells["E56"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$11, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
                 Sheet2.Cells["E57"].Formula = @"=SUM(E56,E52)";
                 //Total
                 Sheet2.Cells["F53"].Formula = @"=SUM(D53,E53)";
@@ -463,11 +463,11 @@ namespace Testing_Automate_Report.Controllers
                 Sheet2.Cells["F56"].Formula = @"=SUM(D56,E56)";
                 Sheet2.Cells["F57"].Formula = @"=SUM(F52,F55,F56)";
                 //Biller Due
-                Sheet2.Cells["G53"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$8, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
+                Sheet2.Cells["G53"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$11, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
                 Sheet2.Cells["G54"].Formula = @"=GETPIVOTDATA(""Sum of Cost Price"",Stats!$B$33, ""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
                 Sheet2.Cells["G52"].Formula = @"=SUM(G53,G54)";
-                Sheet2.Cells["G55"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$8, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
-                Sheet2.Cells["G56"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$8, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
+                Sheet2.Cells["G55"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$11, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
+                Sheet2.Cells["G56"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$11, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
                 Sheet2.Cells["G57"].Formula = @"=SUM(G52,G55,G56)";
 
 
@@ -499,7 +499,7 @@ namespace Testing_Automate_Report.Controllers
                 Sheet2.Cells["G53:G56"].Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
 
                 //Heading 1
-                ExcelRange rg = Sheet2.Cells["B7"];
+                ExcelRange rg = Sheet2.Cells["B10"];
                 rg.IsRichText = true;
                 //ExcelRichText uses "using OfficeOpenXml.Style;"
                 ExcelRichText text1 = rg.RichText.Add("TG Pay Details");
@@ -516,7 +516,7 @@ namespace Testing_Automate_Report.Controllers
                 text2.FontName = "Calibri";
                 text2.Size = 18;
                 text2.Color = System.Drawing.Color.Black;
-                //Heading 2
+                //Heading 3
                 ExcelRange h3 = Sheet2.Cells["B50"];
                 h3.IsRichText = true;
                 //ExcelRichText uses "using OfficeOpenXml.Style;"
@@ -525,6 +525,15 @@ namespace Testing_Automate_Report.Controllers
                 text3.FontName = "Calibri";
                 text3.Size = 18;
                 text3.Color = System.Drawing.Color.Black;
+                //Heading 4
+                ExcelRange h4 = Sheet2.Cells["B7"];
+                h4.IsRichText = true;
+                //ExcelRichText uses "using OfficeOpenXml.Style;"
+                ExcelRichText text4 = h4.RichText.Add("Reconciliation Auto Generate Report");
+                text4.Bold = true;
+                text4.FontName = "Calibri";
+                text4.Size = 20;
+                text4.Color = System.Drawing.Color.Black;
                 //Footer
                 ExcelRange g = Sheet2.Cells["D60"];
                 g.IsRichText = true;
