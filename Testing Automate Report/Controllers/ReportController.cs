@@ -1,4 +1,5 @@
 ﻿using LumenWorks.Framework.IO.Csv;
+using Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using OfficeOpenXml.Table.PivotTable;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -36,7 +38,7 @@ namespace Testing_Automate_Report.Controllers
 
 
 
-            var csvTable = new DataTable();
+            var csvTable = new System.Data.DataTable();
             using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(fullpath)), true))
             {
                 csvTable.Load(csvReader);
@@ -72,6 +74,8 @@ namespace Testing_Automate_Report.Controllers
             string[] month = csvTable.Rows[0][0].ToString().Split(new char[] { '-', '/' });
             var updatedMonth = month[1].Length == 1 ? '0' + month[1].ToString() : month[1].ToString();
             var days = DateTime.DaysInMonth(Convert.ToInt32(month[1]), Convert.ToInt32(updatedMonth));
+
+            string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Convert.ToInt32(updatedMonth));
 
 
             int terminalID = 0;
@@ -221,30 +225,30 @@ namespace Testing_Automate_Report.Controllers
                 flag = true;
 
             ExcelPackage Ep = new ExcelPackage();
-            ExcelWorksheet Sheet = Ep.Workbook.Worksheets.Add("Reconciliation Report");
-            ExcelWorksheet Sheet1 = Ep.Workbook.Worksheets.Add("Ding Report");
-            ExcelWorksheet Sheet2 = Ep.Workbook.Worksheets.Add("Stats");
+            ExcelWorksheet Sheet = Ep.Workbook.Worksheets.Add("Stats");
+            ExcelWorksheet Sheet1 = Ep.Workbook.Worksheets.Add("TGPay Report");
+            ExcelWorksheet Sheet2 = Ep.Workbook.Worksheets.Add("Ding Report");
 
             int row = 2;
             string currentformula = "";
 
             #region * Ding Column details
-            Sheet1.Cells["A1"].Value = "Date";
-            Sheet1.Cells["B1"].Value = "TransactionID";
-            Sheet1.Cells["C1"].Value = "Balance Before";
-            Sheet1.Cells["D1"].Value = "Balance After";
-            Sheet1.Cells["E1"].Value = "Receive Amount";
-            Sheet1.Cells["F1"].Value = "Sales Price";
-            Sheet1.Cells["G1"].Value = "Cost Price";
-            Sheet1.Cells["H1"].Value = "Commission Amount";
-            Sheet1.Cells["I1"].Value = "Transfer Ref";
-            Sheet1.Cells["J1"].Value = "Distributor Ref";
-            Sheet1.Cells["K1"].Value = "Status";
-            Sheet1.Cells["L1"].Value = "Country";
-            Sheet1.Cells["M1"].Value = "Operator";
-            Sheet1.Cells["N1"].Value = "Agent";
-            Sheet1.Cells["O1"].Value = "User";
-            Sheet1.Cells["P1"].Value = "Product SKU code";
+            Sheet2.Cells["A1"].Value = "Date";
+            Sheet2.Cells["B1"].Value = "TransactionID";
+            Sheet2.Cells["C1"].Value = "Balance Before";
+            Sheet2.Cells["D1"].Value = "Balance After";
+            Sheet2.Cells["E1"].Value = "Receive Amount";
+            Sheet2.Cells["F1"].Value = "Sales Price";
+            Sheet2.Cells["G1"].Value = "Cost Price";
+            Sheet2.Cells["H1"].Value = "Commission Amount";
+            Sheet2.Cells["I1"].Value = "Transfer Ref";
+            Sheet2.Cells["J1"].Value = "Distributor Ref";
+            Sheet2.Cells["K1"].Value = "Status";
+            Sheet2.Cells["L1"].Value = "Country";
+            Sheet2.Cells["M1"].Value = "Operator";
+            Sheet2.Cells["N1"].Value = "Agent";
+            Sheet2.Cells["O1"].Value = "User";
+            Sheet2.Cells["P1"].Value = "Product SKU code";
             #endregion
             foreach (var ding in DingDataList)
             {
@@ -257,88 +261,96 @@ namespace Testing_Automate_Report.Controllers
                     else
                         recon.Status = "Approved";
                 }
-                Sheet1.Cells[string.Format("A{0}", row)].Value = ding.Date.ToString(); //
-                Sheet1.Cells[string.Format("B{0}", row)].Value = ding.TransactionID.ToString();
-                Sheet1.Cells[string.Format("C{0}", row)].Value = ding.BalanceBefore;
-                Sheet1.Cells[string.Format("D{0}", row)].Value = ding.BalanceAfter.ToString() ?? "N/A"; //a.TransactionCurrency;
-                Sheet1.Cells[string.Format("E{0}", row)].Value = Convert.ToDouble(receiverAmount[0]); //
-                Sheet1.Cells[string.Format("F{0}", row)].Value = Convert.ToDouble(ding.SalesPrice);
-                Sheet1.Cells[string.Format("G{0}", row)].Value = Convert.ToDouble(ding.CostPrice);
-                Sheet1.Cells[string.Format("H{0}", row)].Value = Convert.ToDouble(ding.CommissionAmt);
-                Sheet1.Cells[string.Format("I{0}", row)].Value = ding.TransferRef;
-                Sheet1.Cells[string.Format("J{0}", row)].Value = ding.TransactionLogID.ToString() ?? "N/A";
-                Sheet1.Cells[string.Format("K{0}", row)].Value = ding.Status;
-                Sheet1.Cells[string.Format("L{0}", row)].Value = ding.country.ToString() ?? "N/A";
-                Sheet1.Cells[string.Format("M{0}", row)].Value = ding.Operator;
-                Sheet1.Cells[string.Format("N{0}", row)].Value = ding.Agent;
-                Sheet1.Cells[string.Format("O{0}", row)].Value = ding.user;
-                Sheet1.Cells[string.Format("p{0}", row)].Value = ding.PorductSKUcode;
+                if (ding.user == "API User")
+                {
+                    ding.user = "TGPay";
+                }
+                if (ding.user == "mohammed.arafath@transguardgroup.com")
+                {
+                    ding.user = "Ding Portal";
+                }
+                Sheet2.Cells[string.Format("A{0}", row)].Value = ding.Date.ToString(); //
+                Sheet2.Cells[string.Format("B{0}", row)].Value = ding.TransactionID.ToString();
+                Sheet2.Cells[string.Format("C{0}", row)].Value = ding.BalanceBefore;
+                Sheet2.Cells[string.Format("D{0}", row)].Value = ding.BalanceAfter.ToString() ?? "N/A"; //a.TransactionCurrency;
+                Sheet2.Cells[string.Format("E{0}", row)].Value = Convert.ToDouble(receiverAmount[0]); //
+                Sheet2.Cells[string.Format("F{0}", row)].Value = Convert.ToDouble(ding.SalesPrice);
+                Sheet2.Cells[string.Format("G{0}", row)].Value = Convert.ToDouble(ding.CostPrice);
+                Sheet2.Cells[string.Format("H{0}", row)].Value = Convert.ToDouble(ding.CommissionAmt);
+                Sheet2.Cells[string.Format("I{0}", row)].Value = ding.TransferRef;
+                Sheet2.Cells[string.Format("J{0}", row)].Value = ding.TransactionLogID.ToString() ?? "N/A";
+                Sheet2.Cells[string.Format("K{0}", row)].Value = ding.Status;
+                Sheet2.Cells[string.Format("L{0}", row)].Value = ding.country.ToString() ?? "N/A";
+                Sheet2.Cells[string.Format("M{0}", row)].Value = ding.Operator;
+                Sheet2.Cells[string.Format("N{0}", row)].Value = ding.Agent;
+                Sheet2.Cells[string.Format("O{0}", row)].Value = ding.user;
+                Sheet2.Cells[string.Format("p{0}", row)].Value = ding.PorductSKUcode;
 
                 row++;
             }
-            Sheet1.Cells["A:AZ"].AutoFitColumns();
+            Sheet2.Cells["A:AZ"].AutoFitColumns();
 
 
             #region  * TGPay Column details
-            Sheet.Cells["A1"].Value = "Pd Txn ID";
-            Sheet.Cells["B1"].Value = "Source DateTime";
-            Sheet.Cells["C1"].Value = "Response Time";
-            Sheet.Cells["D1"].Value = "Kiosk ID";
-            Sheet.Cells["E1"].Value = "Biller ID";
-            Sheet.Cells["F1"].Value = "Service";
-            Sheet.Cells["G1"].Value = "Product";
-            Sheet.Cells["H1"].Value = "Consumer ID";
-            Sheet.Cells["I1"].Value = "Total Deposit";
-            Sheet.Cells["J1"].Value = "Note Breakdown";
-            Sheet.Cells["K1"].Value = "Cash Cycle";
-            Sheet.Cells["L1"].Value = "Biller Reference";
-            Sheet.Cells["M1"].Value = "Fee";
-            Sheet.Cells["N1"].Value = "Biller Payment";
-            Sheet.Cells["O1"].Value = "Fee Earned";
-            Sheet.Cells["P1"].Value = "Breakage Earned";
-            Sheet.Cells["Q1"].Value = "Service Charges";
-            Sheet.Cells["R1"].Value = "Total Earning";
-            Sheet.Cells["S1"].Value = "Status";
-            Sheet.Cells["T1"].Value = "Repost";
-            Sheet.Cells["U1"].Value = "User";
-            Sheet.Cells["V1"].Value = "Biller Due";
+            Sheet1.Cells["A1"].Value = "Pd Txn ID";
+            Sheet1.Cells["B1"].Value = "Source DateTime";
+            Sheet1.Cells["C1"].Value = "Response Time";
+            Sheet1.Cells["D1"].Value = "Kiosk ID";
+            Sheet1.Cells["E1"].Value = "Biller ID";
+            Sheet1.Cells["F1"].Value = "Service";
+            Sheet1.Cells["G1"].Value = "Product";
+            Sheet1.Cells["H1"].Value = "Consumer ID";
+            Sheet1.Cells["I1"].Value = "Total Deposit";
+            Sheet1.Cells["J1"].Value = "Note Breakdown";
+            Sheet1.Cells["K1"].Value = "Cash Cycle";
+            Sheet1.Cells["L1"].Value = "Biller Reference";
+            Sheet1.Cells["M1"].Value = "Fee";
+            Sheet1.Cells["N1"].Value = "Biller Payment";
+            Sheet1.Cells["O1"].Value = "Fee Earned";
+            Sheet1.Cells["P1"].Value = "Breakage Earned";
+            Sheet1.Cells["Q1"].Value = "Service Charges";
+            Sheet1.Cells["R1"].Value = "Total Earning";
+            Sheet1.Cells["S1"].Value = "Status";
+            Sheet1.Cells["T1"].Value = "Repost";
+            Sheet1.Cells["U1"].Value = "User";
+            Sheet1.Cells["V1"].Value = "Biller Due";
             #endregion
             row = 2;
             currentformula = "";
             foreach (var a in reconciliationReport)
             {
                 currentformula = "=(N" + row + "-O" + row + ")";
-                Sheet.Cells[string.Format("A{0}", row)].Value = a.TransactionLogID.ToString(); //
-                Sheet.Cells[string.Format("B{0}", row)].Value = a.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"); //a.SourceTransactionID;
-                Sheet.Cells[string.Format("C{0}", row)].Value = a.ResponseTime != null ? a.ResponseTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : "";
-                Sheet.Cells[string.Format("D{0}", row)].Value = a.KioskID.ToString() ?? "N/A"; //a.TransactionCurrency;
-                Sheet.Cells[string.Format("E{0}", row)].Value = a.BillerID.ToString() ?? "N/A"; //
-                Sheet.Cells[string.Format("F{0}", row)].Value = a.ServiceName ?? "N/A";
-                Sheet.Cells[string.Format("G{0}", row)].Value = a.ProductID ?? "N/A";
-                Sheet.Cells[string.Format("H{0}", row)].Value = a.ConsumerID ?? "N/A";
-                Sheet.Cells[string.Format("I{0}", row)].Value = Convert.ToDouble(a.TotalDeposit.ToString() ?? "0");
-                Sheet.Cells[string.Format("J{0}", row)].Value = a.NoteBreakDown ?? "N/A";
-                Sheet.Cells[string.Format("K{0}", row)].Value = a.CashCycleID.ToString() ?? "N/A";
-                Sheet.Cells[string.Format("L{0}", row)].Value = a.BillerReference.ToString() ?? "N/A";
-                Sheet.Cells[string.Format("M{0}", row)].Value = a.Fee.ToString() ?? "0%";
-                Sheet.Cells[string.Format("N{0}", row)].Value = Convert.ToDouble(a.BillerPayment.ToString() ?? "0");
-                Sheet.Cells[string.Format("O{0}", row)].Value = Convert.ToDouble(a.FeeEarned.ToString() ?? "0");
-                Sheet.Cells[string.Format("P{0}", row)].Value = Convert.ToDouble(a.BreakageEarned.ToString() ?? "0");
-                Sheet.Cells[string.Format("Q{0}", row)].Value = Convert.ToInt32(a.ServiceCharges.ToString() ?? "0");
-                Sheet.Cells[string.Format("R{0}", row)].Value = Convert.ToDouble(a.TotalEarning.ToString() ?? "0");
-                Sheet.Cells[string.Format("S{0}", row)].Value = a.Status.ToString() ?? "N/A";
-                Sheet.Cells[string.Format("T{0}", row)].Value = a.Repost.ToString() ?? "N/A";
-                Sheet.Cells[string.Format("U{0}", row)].Value = a.UserID.ToString() ?? "N/A";
-                Sheet.Cells[string.Format("V{0}", row)].Value = Convert.ToDouble(a.Biller_Due.ToString() ?? "0");
+                Sheet1.Cells[string.Format("A{0}", row)].Value = a.TransactionLogID.ToString(); //
+                Sheet1.Cells[string.Format("B{0}", row)].Value = a.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"); //a.SourceTransactionID;
+                Sheet1.Cells[string.Format("C{0}", row)].Value = a.ResponseTime != null ? a.ResponseTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : "";
+                Sheet1.Cells[string.Format("D{0}", row)].Value = a.KioskID.ToString() ?? "N/A"; //a.TransactionCurrency;
+                Sheet1.Cells[string.Format("E{0}", row)].Value = a.BillerID.ToString() ?? "N/A"; //
+                Sheet1.Cells[string.Format("F{0}", row)].Value = a.ServiceName ?? "N/A";
+                Sheet1.Cells[string.Format("G{0}", row)].Value = a.ProductID ?? "N/A";
+                Sheet1.Cells[string.Format("H{0}", row)].Value = a.ConsumerID ?? "N/A";
+                Sheet1.Cells[string.Format("I{0}", row)].Value = Convert.ToDouble(a.TotalDeposit.ToString() ?? "0");
+                Sheet1.Cells[string.Format("J{0}", row)].Value = a.NoteBreakDown ?? "N/A";
+                Sheet1.Cells[string.Format("K{0}", row)].Value = a.CashCycleID.ToString() ?? "N/A";
+                Sheet1.Cells[string.Format("L{0}", row)].Value = a.BillerReference.ToString() ?? "N/A";
+                Sheet1.Cells[string.Format("M{0}", row)].Value = a.Fee.ToString() ?? "0%";
+                Sheet1.Cells[string.Format("N{0}", row)].Value = Convert.ToDouble(a.BillerPayment.ToString() ?? "0");
+                Sheet1.Cells[string.Format("O{0}", row)].Value = Convert.ToDouble(a.FeeEarned.ToString() ?? "0");
+                Sheet1.Cells[string.Format("P{0}", row)].Value = Convert.ToDouble(a.BreakageEarned.ToString() ?? "0");
+                Sheet1.Cells[string.Format("Q{0}", row)].Value = Convert.ToInt32(a.ServiceCharges.ToString() ?? "0");
+                Sheet1.Cells[string.Format("R{0}", row)].Value = Convert.ToDouble(a.TotalEarning.ToString() ?? "0");
+                Sheet1.Cells[string.Format("S{0}", row)].Value = a.Status.ToString() ?? "N/A";
+                Sheet1.Cells[string.Format("T{0}", row)].Value = a.Repost.ToString() ?? "N/A";
+                Sheet1.Cells[string.Format("U{0}", row)].Value = a.UserID.ToString() ?? "N/A";
+                Sheet1.Cells[string.Format("V{0}", row)].Value = Convert.ToDouble(a.Biller_Due.ToString() ?? "0");
 
                 row++;
             }
-            Sheet.Cells["A:AZ"].AutoFitColumns();
+            Sheet1.Cells["A:AZ"].AutoFitColumns();
 
             //Add logo
-            using (System.Drawing.Image image = System.Drawing.Image.FromFile(Server.MapPath("~/Content/Image/Logo.png")))
+            using (System.Drawing.Image image = System.Drawing.Image.FromFile(Server.MapPath("~/Content/Image/TGlogo.png")))
             {
-                var excelImage = Sheet2.Drawings.AddPicture("My Logo", image);
+                var excelImage = Sheet.Drawings.AddPicture("My Logo", image);
 
                 //add the image to row 2, column B
                 excelImage.SetPosition(1, 0, 1, 0);
@@ -346,12 +358,12 @@ namespace Testing_Automate_Report.Controllers
             }
 
             //define the data range on the source sheet
-            var dataRange = Sheet.Cells[Sheet.Dimension.Address];
-            var dataRange1 = Sheet1.Cells[Sheet1.Dimension.Address];
+            var dataRange = Sheet1.Cells[Sheet1.Dimension.Address];
+            var dataRange1 = Sheet2.Cells[Sheet2.Dimension.Address];
 
             //create the pivot table
-            var pivotTable = Sheet2.PivotTables.Add(Sheet2.Cells["B11"], dataRange, "PivotTable");
-            var pivotTable1 = Sheet2.PivotTables.Add(Sheet2.Cells["B33"], dataRange1, "PivotTable1");
+            var pivotTable = Sheet.PivotTables.Add(Sheet.Cells["B11"], dataRange, "PivotTable");
+            var pivotTable1 = Sheet.PivotTables.Add(Sheet.Cells["B33"], dataRange1, "PivotTable1");
 
             //label field for TGpay report
             pivotTable.RowFields.Add(pivotTable.Fields["Biller ID"]);
@@ -388,8 +400,10 @@ namespace Testing_Automate_Report.Controllers
             field.Format = "0.00";
 
             //label field for Host report
+
             pivotTable1.RowFields.Add(pivotTable1.Fields["Status"]);
             pivotTable1.DataOnRows = false;
+            var field_product = pivotTable1.Fields[1];
             pivotTable1.RowFields.Add(pivotTable1.Fields["User"]);
             pivotTable1.DataOnRows = false;
             //data field
@@ -415,136 +429,53 @@ namespace Testing_Automate_Report.Controllers
             field1.Function = DataFieldFunctions.Sum;
             field1.Format = "0.00";
             //----------------------------------------//
-            //label field for Final PivotTable
-
-            using (ExcelRange Rng = Sheet2.Cells["B51:G57"])
-            {
-                Rng.Merge = false;
-                Rng.Style.Border.Top.Style = ExcelBorderStyle.Thick;
-                Rng.Style.Border.Top.Color.SetColor(Color.Black);
-                Rng.Style.Border.Left.Style = ExcelBorderStyle.Thick;
-                Rng.Style.Border.Left.Color.SetColor(Color.Black);
-                Rng.Style.Border.Right.Style = ExcelBorderStyle.Thick;
-                Rng.Style.Border.Right.Color.SetColor(Color.Black);
-                Rng.Style.Border.Bottom.Style = ExcelBorderStyle.Thick;
-                Rng.Style.Border.Bottom.Color.SetColor(Color.Black);
-
-                Sheet2.Cells["B51"].Value = " ";
-                Sheet2.Cells["B52"].Value = "Ding";
-
-                Sheet2.Cells["B53"].Value = "Online Txns";
-                Sheet2.Cells["C53"].Formula = @"=GETPIVOTDATA(""Count of TransactionID"",Stats!$B$33,""Status"",""Success"",""User"",""API User"")";
-                Sheet2.Cells["B54"].Value = "Manual Posting";
-                Sheet2.Cells["C54"].Formula = @"=GETPIVOTDATA(""Count of TransactionID"",Stats!$B$33,""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
-                Sheet2.Cells["C52"].Formula = @"=SUM(C53,C54)";
-                Sheet2.Cells["B55"].Value = "Etisalat";
-                Sheet2.Cells["C55"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$11,""Biller ID"",""Etisalat"",""Status"",""Approved"")";
-                Sheet2.Cells["B56"].Value = "Paykii";
-                Sheet2.Cells["C56"].Formula = @"=GETPIVOTDATA(""Count of Kiosk ID"",Stats!$B$11,""Biller ID"",""Paykii"",""Status"",""Approved"")";
-                Sheet2.Cells["B57"].Value = "TOTAL";
-                Sheet2.Cells["C57"].Formula = @"=SUM(C52,C55,C56)";
-                //Fee Earned
-                Sheet2.Cells["D53"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$11, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
-                Sheet2.Cells["D54"].Formula = @"=GETPIVOTDATA(""Commission Amount"",Stats!$B$33, ""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
-                Sheet2.Cells["D52"].Formula = @"=SUM(D53,D54)";
-                Sheet2.Cells["D55"].Formula = @"=GETPIVOTDATA(""Sum of Total Earning"",Stats!$B$11, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
-                Sheet2.Cells["D56"].Formula = @"=GETPIVOTDATA(""Sum of Fee Earned"",Stats!$B$11, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
-                Sheet2.Cells["D57"].Formula = @"=SUM(D52,D55,D56)";
-                //Breakage Earned
-                Sheet2.Cells["E53"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$11, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
-                Sheet2.Cells["E52"].Formula = @"=SUM(E53)";
-                Sheet2.Cells["E56"].Formula = @"=GETPIVOTDATA(""Sum of Breakage Earned"",Stats!$B$11, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
-                Sheet2.Cells["E57"].Formula = @"=SUM(E56,E52)";
-                //Total
-                Sheet2.Cells["F53"].Formula = @"=SUM(D53,E53)";
-                Sheet2.Cells["F54"].Formula = @"=SUM(D54,E54)";
-                Sheet2.Cells["F52"].Formula = @"=SUM(F53,F54)";
-                Sheet2.Cells["F55"].Formula = @"=SUM(D55,E55)";
-                Sheet2.Cells["F56"].Formula = @"=SUM(D56,E56)";
-                Sheet2.Cells["F57"].Formula = @"=SUM(F52,F55,F56)";
-                //Biller Due
-                Sheet2.Cells["G53"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$11, ""Biller ID"", ""Ding Host"", ""Status"", ""Approved"")";
-                Sheet2.Cells["G54"].Formula = @"=GETPIVOTDATA(""Sum of Cost Price"",Stats!$B$33, ""Status"",""Success"",""User"",""mohammed.arafath@transguardgroup.com"")";
-                Sheet2.Cells["G52"].Formula = @"=SUM(G53,G54)";
-                Sheet2.Cells["G55"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$11, ""Biller ID"", ""Etisalat"", ""Status"", ""Approved"")";
-                Sheet2.Cells["G56"].Formula = @"=GETPIVOTDATA(""Sum of Biller Due"",Stats!$B$11, ""Biller ID"", ""Paykii"", ""Status"", ""Approved"")";
-                Sheet2.Cells["G57"].Formula = @"=SUM(G52,G55,G56)";
-
-
-                Sheet2.Cells["C51"].Value = "Count";
-                Sheet2.Cells["D51"].Value = "Fee Earned";
-                Sheet2.Cells["E51"].Value = "Breakage Earned";
-                Sheet2.Cells["F51"].Value = "Total";
-                Sheet2.Cells["G51"].Value = "Biller Due";
-
-                Sheet2.Cells["C51:G51"].Style.Font.Size = 14;
-                Sheet2.Cells["C51:G51"].Style.Font.Name = "Calibri";
-                Sheet2.Cells["C51:G51"].Style.Font.Bold = true;
-                Sheet2.Cells["C51:G51"].Style.Font.Color.SetColor(Color.Black);
-                Sheet2.Cells["B52:B57"].Style.Font.Size = 12;
-                Sheet2.Cells["B52:B57"].Style.Font.Name = "Calibri";
-                Sheet2.Cells["B52:B57"].Style.Font.Bold = true;
-                Sheet2.Cells["B52:B57"].Style.Font.Color.SetColor(Color.Black);
-                Sheet2.Cells["C52:G52"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                Sheet2.Cells["C52:G52"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
-                Sheet2.Cells["C57:G57"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                Sheet2.Cells["C57:G57"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
-                Sheet2.Cells["C51:G51"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                Sheet2.Cells["C51:G51"].Style.Fill.BackgroundColor.SetColor(Color.LightGray);
-                Sheet2.Cells["F53:F56"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                Sheet2.Cells["F53:F56"].Style.Fill.BackgroundColor.SetColor(Color.LightGreen);
-                Sheet2.Cells["C53:E56"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                Sheet2.Cells["C53:E56"].Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
-                Sheet2.Cells["G53:G56"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                Sheet2.Cells["G53:G56"].Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
-
-                //Heading 1
-                ExcelRange rg = Sheet2.Cells["B10"];
-                rg.IsRichText = true;
-                //ExcelRichText uses "using OfficeOpenXml.Style;"
-                ExcelRichText text1 = rg.RichText.Add("TG Pay Details");
-                text1.Bold = true;
-                text1.FontName = "Calibri";
-                text1.Size = 18;
-                text1.Color = System.Drawing.Color.Black;
-                //Heading 2
-                ExcelRange h2 = Sheet2.Cells["B31"];
-                h2.IsRichText = true;
-                //ExcelRichText uses "using OfficeOpenXml.Style;"
-                ExcelRichText text2 = h2.RichText.Add("Ding Details");
-                text2.Bold = true;
-                text2.FontName = "Calibri";
-                text2.Size = 18;
-                text2.Color = System.Drawing.Color.Black;
-                //Heading 3
-                ExcelRange h3 = Sheet2.Cells["B50"];
-                h3.IsRichText = true;
-                //ExcelRichText uses "using OfficeOpenXml.Style;"
-                ExcelRichText text3 = h3.RichText.Add("Total Earning");
-                text3.Bold = true;
-                text3.FontName = "Calibri";
-                text3.Size = 18;
-                text3.Color = System.Drawing.Color.Black;
-                //Heading 4
-                ExcelRange h4 = Sheet2.Cells["B7"];
-                h4.IsRichText = true;
-                //ExcelRichText uses "using OfficeOpenXml.Style;"
-                ExcelRichText text4 = h4.RichText.Add("Reconciliation Auto Generate Report");
-                text4.Bold = true;
-                text4.FontName = "Calibri";
-                text4.Size = 20;
-                text4.Color = System.Drawing.Color.Black;
-                //Footer
-                ExcelRange g = Sheet2.Cells["D60"];
-                g.IsRichText = true;
-                //ExcelRichText uses "using OfficeOpenXml.Style;"
-                ExcelRichText Footer = g.RichText.Add("© 2022 Encore-Pay");
-                Footer.Bold = true;
-                //Footer.Italic = true;
-                Footer.FontName = "Calibri";
-                Footer.Size = 11;
-                Footer.Color = System.Drawing.Color.Black;
-            }
+            //Heading for tables
+            //Heading 1
+            ExcelRange rg = Sheet.Cells["B10"];
+            rg.IsRichText = true;
+            //ExcelRichText uses "using OfficeOpenXml.Style;"
+            ExcelRichText text1 = rg.RichText.Add("TG Pay Details");
+            text1.Bold = true;
+            text1.FontName = "Calibri";
+            text1.Size = 18;
+            text1.Color = System.Drawing.Color.Black;
+            //Heading 2
+            ExcelRange h2 = Sheet.Cells["B31"];
+            h2.IsRichText = true;
+            //ExcelRichText uses "using OfficeOpenXml.Style;"
+            ExcelRichText text2 = h2.RichText.Add("Ding Details");
+            text2.Bold = true;
+            text2.FontName = "Calibri";
+            text2.Size = 18;
+            text2.Color = System.Drawing.Color.Black;
+            //Heading 3
+            ExcelRange h4 = Sheet.Cells["B7"];
+            h4.IsRichText = true;
+            //ExcelRichText uses "using OfficeOpenXml.Style;"
+            ExcelRichText text4 = h4.RichText.Add("Settlement Auto Generated Report");
+            text4.Bold = true;
+            text4.FontName = "Calibri";
+            text4.Size = 20;
+            text4.Color = System.Drawing.Color.Black;
+            //Heading 4
+            ExcelRange h5 = Sheet.Cells["B9"];
+            h5.IsRichText = true;
+            //ExcelRichText uses "using OfficeOpenXml.Style;"
+            ExcelRichText text5 = h5.RichText.Add("Month Of " + monthName);
+            text5.Bold = true;
+            text5.FontName = "Calibri";
+            text5.Size = 18;
+            text5.Color = System.Drawing.Color.Black;
+            //Footer
+            ExcelRange g = Sheet.Cells["D50"];
+            g.IsRichText = true;
+            //ExcelRichText uses "using OfficeOpenXml.Style;"
+            ExcelRichText Footer = g.RichText.Add("© 2022 Transguard Pay");
+            Footer.Bold = true;
+            //Footer.Italic = true;
+            Footer.FontName = "Calibri";
+            Footer.Size = 11;
+            Footer.Color = System.Drawing.Color.Black;
             handle = Guid.NewGuid().ToString();
             using (MemoryStream memoryStream = new MemoryStream())
             {
