@@ -74,10 +74,9 @@ namespace Testing_Automate_Report.Controllers
             string[] month = csvTable.Rows[0][0].ToString().Split(new char[] { '-', '/' });
             var updatedMonth = month[1].Length == 1 ? '0' + month[1].ToString() : month[1].ToString();
             var days = DateTime.DaysInMonth(Convert.ToInt32(month[1]), Convert.ToInt32(updatedMonth));
+            var year = DateTime.Now.ToString("yyyy");
 
             string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Convert.ToInt32(updatedMonth));
-
-
             int terminalID = 0;
             DateTime? from = null;
             DateTime? to = null;
@@ -260,14 +259,10 @@ namespace Testing_Automate_Report.Controllers
                         recon.Status = "Declined";
                     else
                         recon.Status = "Approved";
-                }
-                if (ding.user == "API User")
-                {
-                    ding.user = "TGPay";
-                }
-                if (ding.user == "mohammed.arafath@transguardgroup.com")
-                {
-                    ding.user = "Ding Portal";
+                    if (ding.user == "API User")
+                        ding.user = "TGPay";
+                    else
+                        ding.user = "Ding Portal";
                 }
                 Sheet2.Cells[string.Format("A{0}", row)].Value = ding.Date.ToString(); //
                 Sheet2.Cells[string.Format("B{0}", row)].Value = ding.TransactionID.ToString();
@@ -483,7 +478,8 @@ namespace Testing_Automate_Report.Controllers
                 memoryStream.Position = 0;
                 TempData[handle] = memoryStream.ToArray();
             }
-            return RedirectToAction("DownloadReconciliationReport", "Report", new { fileGuid = handle, fileName = filename });
+            string AutomateFileName = "Settlement Report (" + monthName + "-"+ year + ").xlsx";
+            return RedirectToAction("DownloadReconciliationReport", "Report", new { fileGuid = handle, fileName = AutomateFileName });
 
         }
         [HttpGet]
