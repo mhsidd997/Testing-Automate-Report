@@ -252,18 +252,18 @@ namespace Testing_Automate_Report.Controllers
             foreach (var ding in DingDataList)
             {
                 string[] receiverAmount = ding.RecieveAmt.Split(' ');
-                AutomateReconReportModal recon = reconciliationReport.FirstOrDefault(x => x.BillerID == "Ding Host" && x.TransactionLogID == ding.TransactionLogID && x.Status != ding.Status);
+                AutomateReconReportModal recon = reconciliationReport.FirstOrDefault(x => x.BillerID == "MHZ-MA" && x.TransactionLogID == ding.TransactionLogID && x.Status != ding.Status);
                 if (recon != null)
                 {
                     if (ding.Status == "Failure")
                         recon.Status = "Declined";
                     else
                         recon.Status = "Approved";
-                    if (ding.user == "API User")
-                        ding.user = "TGPay";
-                    else
-                        ding.user = "Ding Portal";
                 }
+                if (ding.user == "API User")
+                    ding.user = "TGPay";
+                else
+                    ding.user = "Ding Portal";
                 Sheet2.Cells[string.Format("A{0}", row)].Value = ding.Date.ToString(); //
                 Sheet2.Cells[string.Format("B{0}", row)].Value = ding.TransactionID.ToString();
                 Sheet2.Cells[string.Format("C{0}", row)].Value = ding.BalanceBefore;
