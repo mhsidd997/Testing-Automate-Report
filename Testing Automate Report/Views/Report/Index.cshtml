@@ -16,7 +16,7 @@
                 <br>(This is ding file upload tab, only upload a .csv file)
             </span>
 
-            <input type="file" id="uploadingFile" name="files" class="drop-zone-input" accept=".csv, .xlsx" style="display:none">
+            <input type="file" id="uploadingFile" name="files" class="drop-zone-input" accept=".csv" style="display:none">
 
         </div>
         <br>
@@ -87,8 +87,22 @@
 
 
     }
+@if (TempData["catcherror"] != null)
+{
+        $(document).ready(function () {
+            setTimeout(function () {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    timeOut: 4000
+                };
+                toastr.error('@Html.Encode(TempData["catcherror"])', 'Error');
 
+            }, 1300);
 
+        });
+}
 </script>
 
 
