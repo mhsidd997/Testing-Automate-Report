@@ -29,6 +29,7 @@ namespace Testing_Automate_Report.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase files)
         {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             if (files == null)
             { return View(); }
             string path = Server.MapPath("~/App_Data/DingFile");
@@ -252,7 +253,7 @@ namespace Testing_Automate_Report.Controllers
             foreach (var ding in DingDataList)
             {
                 string[] receiverAmount = ding.RecieveAmt.Split(' ');
-                AutomateReconReportModal recon = reconciliationReport.FirstOrDefault(x => x.BillerID == "MHZ-MA" && x.TransactionLogID == ding.TransactionLogID && x.Status != ding.Status);
+                AutomateReconReportModal recon = reconciliationReport.FirstOrDefault(x => x.BillerID == "Ding Host" && x.TransactionLogID == ding.TransactionLogID && x.Status != ding.Status);
                 if (recon != null)
                 {
                     if (ding.Status == "Failure")
@@ -396,7 +397,8 @@ namespace Testing_Automate_Report.Controllers
 
             //label field for Host report
 
-            pivotTable1.RowFields.Add(pivotTable1.Fields["Status"]);
+            var rowFilter = pivotTable1.RowFields.Add(pivotTable1.Fields["Status"]);
+            rowFilter.Filters.AddCaptionFilter(ePivotTableCaptionFilterType.CaptionNotBeginsWith, "Test");
             pivotTable1.DataOnRows = false;
             var field_product = pivotTable1.Fields[1];
             pivotTable1.RowFields.Add(pivotTable1.Fields["User"]);
