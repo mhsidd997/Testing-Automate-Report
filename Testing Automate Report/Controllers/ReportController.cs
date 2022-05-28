@@ -456,7 +456,7 @@ namespace Testing_Automate_Report.Controllers
             ExcelRange h5 = Sheet.Cells["B9"];
             h5.IsRichText = true;
             //ExcelRichText uses "using OfficeOpenXml.Style;"
-            ExcelRichText text5 = h5.RichText.Add("Month Of " + monthName);
+            ExcelRichText text5 = h5.RichText.Add("Month Of " + monthName + year);
             text5.Bold = true;
             text5.FontName = "Calibri";
             text5.Size = 18;
@@ -478,16 +478,23 @@ namespace Testing_Automate_Report.Controllers
                 memoryStream.Position = 0;
                 TempData[handle] = memoryStream.ToArray();
             }
+           
             string AutomateFileName = "Settlement Report (" + monthName + "-"+ year + ").xlsx";
-            return RedirectToAction("DownloadReconciliationReport", "Report", new { fileGuid = handle, fileName = AutomateFileName });
+            return RedirectToAction("DownloadReconciliationReport", "Report", new { fileGuid = handle, fileName = AutomateFileName});
 
         }
         [HttpGet]
         public ActionResult DownloadReconciliationReport(string fileGuid, string fileName)
         {
+            
             if (TempData[fileGuid] != null)
             {
                 byte[] data = TempData[fileGuid] as byte[];
+                //File(data, "application/vnd.ms-excel", fileName);
+                //var path1 = Server.MapPath("~/App_Data/GeneratedReport");
+                //var filename1 = File(data, "application/vnd.ms-excel", fileName);
+                //var fullpath1 = Path.Combine(path1, filename1.ToString());
+                //response.BinaryWrite(data);
                 return File(data, "application/vnd.ms-excel", fileName);
             }
             else

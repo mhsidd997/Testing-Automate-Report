@@ -87,22 +87,6 @@
 
 
     }
-@if (TempData["catcherror"] != null)
-{
-        $(document).ready(function () {
-            setTimeout(function () {
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: true,
-                    showMethod: 'slideDown',
-                    timeOut: 4000
-                };
-                toastr.error('@Html.Encode(TempData["catcherror"])', 'Error');
-
-            }, 1300);
-
-        });
-}
 </script>
 
 
