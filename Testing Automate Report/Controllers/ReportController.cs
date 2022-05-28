@@ -29,6 +29,7 @@ namespace Testing_Automate_Report.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase files)
         {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             if (files == null)
             { return View(); }
             string path = Server.MapPath("~/App_Data/DingFile");
@@ -259,11 +260,11 @@ namespace Testing_Automate_Report.Controllers
                         recon.Status = "Declined";
                     else
                         recon.Status = "Approved";
-                    if (ding.user == "API User")
-                        ding.user = "TGPay";
-                    else
-                        ding.user = "Ding Portal";
                 }
+                if (ding.user == "API User")
+                    ding.user = "TGPay";
+                else
+                    ding.user = "Ding Portal";
                 Sheet2.Cells[string.Format("A{0}", row)].Value = ding.Date.ToString(); //
                 Sheet2.Cells[string.Format("B{0}", row)].Value = ding.TransactionID.ToString();
                 Sheet2.Cells[string.Format("C{0}", row)].Value = ding.BalanceBefore;
@@ -396,7 +397,8 @@ namespace Testing_Automate_Report.Controllers
 
             //label field for Host report
 
-            pivotTable1.RowFields.Add(pivotTable1.Fields["Status"]);
+            var rowFilter = pivotTable1.RowFields.Add(pivotTable1.Fields["Status"]);
+            rowFilter.Filters.AddCaptionFilter(ePivotTableCaptionFilterType.CaptionNotBeginsWith, "Test");
             pivotTable1.DataOnRows = false;
             var field_product = pivotTable1.Fields[1];
             pivotTable1.RowFields.Add(pivotTable1.Fields["User"]);
